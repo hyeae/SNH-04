@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GamifyEdu</title>
+    <!-- Include Chart.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Comic-san', sans-serif;
+        }
+        .dashboard-container {
+            max-width: 800px;
+            margin: 50px auto;
+        }
+        canvas {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <h1>Sample head</h1>
+        
+        <!-- Chart 1: Bar Chart -->
+        <canvas id="barChart" width="400" height="200"></canvas>
+
+        <!-- Chart 2: Pie Chart -->
+        <canvas id="pieChart" width="400" height="200"></canvas>
+
+        <script>
+            // Sample data for charts
+            var barChartData = {
+                labels: ['Category 1', 'Category 2', 'Category 3', 'Category 4', 'Category 5'],
+                datasets: [{
+                    label: 'Bar Chart Example',
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1,
+                    data: [12, 19, 3, 5, 2],
+                }]
+            };
+
+            var pieChartData = {
+                labels: ['Category A', 'Category B', 'Category C'],
+                datasets: [{
+                    data: [30, 50, 20],
+                    backgroundColor: ['red', 'blue', 'green'],
+                }]
+            };
+
+            // Create Bar Chart
+            var barChartContext = document.getElementById('barChart').getContext('2d');
+            var barChart = new Chart(barChartContext, {
+                type: 'bar',
+                data: barChartData,
+            });
+
+            // Create Pie Chart
+            var pieChartContext = document.getElementById('pieChart').getContext('2d');
+            var pieChart = new Chart(pieChartContext, {
+                type: 'pie',
+                data: pieChartData,
+            });
+        </script>
+    </div>
+</body>
+</html>
